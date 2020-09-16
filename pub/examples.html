@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JS Library</title>
+    <script defer type="text/javascript" src='js/Validation.js'></script>
+    <script defer type="text/javascript" src='js/examples.js'></script>
+    <link rel="stylesheet" href="styles.css">
+
+
+</head>
+
+<body>
+
+
+
+    <!-- Reference for code tabs: https://www.w3schools.com/howto/howto_js_tabs.asp -->
+
+    <div class="libraryContainer">
+        <h1>Form Validation Library</h1>
+
+        <div class="formContainer">
+            <h2 id="content">Contents</h2>
+            <a class="about" href="documentation.html">View API Documentation</a>
+            <p class="about">Try invalid inputs in the example form and the example inputs</p>
+
+            <ul>
+                <h4><u>Example Forms</u></h4>
+                <li><a href="#registrationForm">1. Example Registration Form</a></li>
+                <li><a href="#commentForm">2. Example Comment Form</a></li>
+                <li><a href="#creditCardForm">3. Example Credit Card Form</a></li>
+            </ul>
+            <ul>
+                <h4><u>Example Inputs with code</u></h4>
+                <li><a href="#exampleInputs">phone number, name, email</a></li>
+                <li><a href="#passwordCheck">passwords</a></li>
+                <li><a href="#checkboxesChecker">checkbox</a></li>
+                <li><a href="#dropdownChecker">drop down bar exclusions</a></li>
+                <li><a href="#dateChecker">date</a></li>
+                <li><a href="#customFunction">custom function</a></li>
+            </ul>
+            <ul>
+                <h4><u>Function examples</u></h4>
+                <li><a href="#getErrorsExample">.getErrors()</a></li>
+                <li><a href="#getActiveErrorsExample">.getActiveErrors()</a></li>
+                <li><a href="#editOptionsExample">.editOptions(name, newOptions)</a></li>
+                <li><a href="#removeOptionsExample">.removeOptions()</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="formContainer">
+
+        <form id="registrationForm">
+            <h2>Registration Form</h2>
+            <a class="back" href="#content">back to top</a> <br />
+
+            <label for="firstname" value="a">First Name</label> <br />
+            <input type="text" name="firstname" id="firstname" /> <br />
+
+            <label for="lastname" value="cc">Last Name</label> <br />
+            <input type="text" name="lastname" id="lastname" /> <br />
+
+            <label for="email" value="abc">Email</label> <br />
+            <input type="email" name="email" id="email" /> <br />
+
+            <label for="password">Password</label> <br />
+            <input type="password" name="password" /> <br />
+
+            <label for="password" value="hey">Confirm Password</label> <br />
+            <input type="password" name="cpassword" /> <br />
+
+            <button type="submit">Register</button>
+
+
+        </form>
+    </div>
+
+    <div class="formContainer">
+
+        <form id="commentForm">
+            <h2>Comment Form</h2>
+            <a class="back" href="#content">back to top</a> <br />
+
+            <label for="name">Name</label> <br />
+            <input type="text" name="firstname" /> <br />
+
+            <label for="email">Email</label> <br />
+            <input type="text" name="email" /> <br />
+
+            <label for="phonenumber">Phone Number</label> <br />
+            <input type="text" name="phonenumber" /> <br />
+
+            <label for="comment">Your reply</label> <br />
+            <textarea name="comment" class="textarea"></textarea> <br />
+
+
+            <button type="submit">Create</button>
+
+        </form>
+    </div>
+
+
+    <div class="formContainer">
+
+        <form id="creditCardForm">
+            <h2>Credit Card Form</h2>
+            <a class="back" href="#content">back to top</a> <br />
+
+            <label for="name">Name on card</label> <br />
+            <input type="text" name="cardname" /> <br />
+
+            <label for="cardnumber">Visa Credit Card Number</label> <br />
+            <input type="text" name="cardnumber" /> <br />
+
+            <label for="coupon">Want to use a coupon?</label> <br />
+
+            <label>25% discount on 1 item
+                <input name="checkbox" type="checkbox">
+            </label> <br />
+
+
+            <label>Buy 1 get 2 free
+                <input name="checkbox" id="last" type="checkbox">
+            </label> <br />
+
+
+
+
+            <button type="submit">Purchase</button>
+
+        </form>
+    </div>
+
+
+    <div class="formContainer">
+
+        <form id="exampleInputs">
+            <h2>phone number, name, email</h2>
+            <a class="back" href="#content">back to top</a> <br />
+
+            <label for="name">phone number</label> <br />
+            <input type="text" name="phonenumber" /> <br />
+
+            <label for="firstnamer">name</label> <br />
+            <input type="text" name="firstName" /> <br />
+
+            <label for="coupon">email</label> <br />
+            <input type="text" name="email" /> <br />
+
+        </form>
+        <p><u>Code for the options of above </u> </p>
+        <div class="tab">
+            <button class="tablinks htmla" onclick="openCode(event, 'JS6')">JS</button>
+            <button class="tablinks" onclick="openCode(event, 'HTML6')">HTML</button>
+        </div>
+
+        <div id="HTML6" class="tabcontent">
+            <pre class="code">
+            <code>
+&lt;form id=&quot;exampleInputs&quot;&gt;
+    &lt;h2&gt;phone number, name, email&lt;/h2&gt;
+    &lt;a class=&quot;back&quot; href=&quot;#content&quot;&gt;back to top&lt;/a&gt; &lt;br /&gt;
+
+    &lt;label for=&quot;name&quot;&gt;phone number&lt;/label&gt; &lt;br /&gt;
+    &lt;input type=&quot;text&quot; name=&quot;phonenumber&quot; /&gt; &lt;br /&gt;
+
+    &lt;label for=&quot;firstnamer&quot;&gt;name&lt;/label&gt; &lt;br /&gt;
+    &lt;input type=&quot;text&quot; name=&quot;firstName&quot; /&gt; &lt;br /&gt;
+
+    &lt;label for=&quot;coupon&quot;&gt;email&lt;/label&gt; &lt;br /&gt;
+    &lt;input type=&quot;text&quot; name=&quot;email&quot; /&gt; 
+&lt;/form&gt;
+        </code>
+        </pre>
+        </div>
+
+        <div id="JS6" class="tabcontent">
+            <pre class="code">
+
+ const exampleInputs = new Validation("#exampleInputs")
+
+ exampleInputs.validate({
+
+    firstName: {
+        type: "text",
+        minLength: 2,
+        numbers: false,
+        whitespace: false,
+        exclude: ["Admin", "User"]
+    },
+
+    email: {
+        type: "email"
+    },
+    phonenumber: {
+        type: "phoneNumber"
+    },
+
+})
+
+</pre>
+        </div>
+
+    </div>
+
+
+    <div class="formContainer">
+
+        <form id="passwordCheck">
+            <h2>Password Check</h2>
+            <a class="back" href="#content">back to top</a> <br />
+
+            <label for="password">Password</label> <br />
+            <input type="password" name="password" /> <br />
+
+            <label for="password">Confirm Password</label> <br />
+            <input type="password" name="confirmPassword" /> <br />
+
+        </form>
+        <p><u>Code for the options of above </u> </p>
+        <div class="tab">
+            <button class="tablinks htmla" onclick="openCode(event, 'JS5')">JS</button>
+            <button class="tablinks" onclick="openCode(event, 'HTML5')">HTML</button>
+        </div>
+
+        <div id="HTML5" class="tabcontent">
+            <pre class="code">
+                <code>
+&lt;form id=&quot;passwordCheck&quot;&gt;
+    &lt;h2&gt;Password Check&lt;/h2&gt;
+    &lt;a class=&quot;back&quot; href=&quot;#content&quot;&gt;back to top&lt;/a&gt; &lt;br /&gt;
+
+    &lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt; &lt;br /&gt;
+    &lt;input type=&quot;password&quot; name=&quot;password&quot; /&gt; &lt;br /&gt;
+
+    &lt;label for=&quot;password&quot;&gt;Confirm Password&lt;/label&gt; &lt;br /&gt;
+    &lt;input type=&quot;password&quot; name=&quot;confirmPassword&quot; /&gt; &lt;br /&gt;
+
+&lt;/form&gt;
+            </code>
+            </pre>
+        </div>
+
+        <div id="JS5" class="tabcontent">
+            <pre class="code">
+// password check
+const passwordCheck = new Validation("#passwordCheck")
+passwordCheck.validate({
+    password: {
+        type: "password",
+        confirmPassword: "confirmPassword"
+    },
+    confirmPassword: {
+        type: "password",
+        isEqual: "password"
+    }
+})
+</pre>
+
+        </div>
+    </div>
+
+    <div class="formContainer">
+
+        <form id="checkboxesChecker">
+            <h2>checkboxes</h2>
+            <a class="back" href="#content">back to top</a> <br />
+
+            <label for="checkbox">Please choose only 3 checkboxes</label> <br />
+
+            <label>A
+                <input name="checkbox" type="checkbox">
+            </label> <br />
+
+
+            <label>B
+                <input name="checkbox" type="checkbox">
+            </label> <br />
+
+            <label>C
+                <input name="checkbox" type="checkbox">
+            </label> <br />
+
+            <label>D
+                <input name="checkbox" type="checkbox">
+            </label> <br />
+
+
+
+            <label>E
+                <input name="checkbox" type="checkbox">
+            </label> <br />
+
+            <label>F
+                <input name="checkbox" type="checkbox" id="last">
+            </label> <br />
+
+        </form>
+        <p><u>Code for the options of above </u> </p>
+        <div class="tab">
+            <button class="tablinks htmla" onclick="openCode(event, 'JS4')">JS</button>
+            <button class="tablinks" onclick="openCode(event, 'HTML4')">HTML</button>
+        </div>
+
+        <div id="HTML4" class="tabcontent">
+            <pre class="code">
+                <code>
+&lt;form id=&quot;checkboxesChecker&quot;&gt;
+    &lt;h2&gt;checkboxes&lt;/h2&gt;
+    &lt;a class=&quot;back&quot; href=&quot;#content&quot;&gt;back to top&lt;/a&gt; &lt;br /&gt;
+
+    &lt;label for=&quot;checkbox&quot;&gt;Please choose only 3 checkboxes&lt;/label&gt; &lt;br /&gt;
+
+    &lt;label&gt;A
+        &lt;input name=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;
+    &lt;/label&gt; &lt;br /&gt;
+
+
+    &lt;label&gt;B
+        &lt;input name=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;
+    &lt;/label&gt; &lt;br /&gt;
+
+    &lt;label&gt;C
+        &lt;input name=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;
+    &lt;/label&gt; &lt;br /&gt;
+
+    &lt;label&gt;D
+        &lt;input name=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;
+    &lt;/label&gt; &lt;br /&gt;
+
+
+
+    &lt;label&gt;E
+        &lt;input name=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;
+    &lt;/label&gt; &lt;br /&gt;
+
+    &lt;label&gt;F
+        &lt;input name=&quot;checkbox&quot; type=&quot;checkbox&quot; id=&quot;last&quot;&gt;
+    &lt;/label&gt; &lt;br /&gt;
+
+&lt;/form&gt;
+            </code>
+            </pre>
+        </div>
+
+        <div id="JS4" class="tabcontent">
+            <pre class="code">
+const checkboxesChecker = new Validation("#checkboxesChecker")
+checkboxesChecker.validate({
+    checkbox: {
+        type: "checkbox",
+        checkLimit: 3,
+        checkMinimum: 1
+    }
+})
+</pre>
+        </div>
+
+    </div>
+
+
+    <div class="formContainer">
+
+        <form id="dropdownChecker">
+            <h2>drop down exclusions</h2>
+            <a class="back" href="#content">back to top</a> <br />
+            <label for="cars">don't choose C or D</label> <br />
+            <select name="dropdown">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+            </select>
+        </form>
+        <p><u>Code for the options of above </u> </p>
+        <div class="tab">
+            <button class="tablinks htmla" onclick="openCode(event, 'JS3')">JS</button>
+            <button class="tablinks" onclick="openCode(event, 'HTML3')">HTML</button>
+        </div>
+
+        <div id="HTML3" class="tabcontent">
+            <pre class="code">
+                <code>
+&lt;form id=&quot;dropdownChecker&quot;&gt;
+&lt;h2&gt;drop down exclusions&lt;/h2&gt;
+&lt;a class=&quot;back&quot; href=&quot;#content&quot;&gt;back to top&lt;/a&gt; &lt;br /&gt;
+&lt;label for=&quot;cars&quot;&gt;don't choose C or D&lt;/label&gt; &lt;br /&gt;
+&lt;select name=&quot;dropdown&quot;&gt;
+    &lt;option value=&quot;A&quot;&gt;A&lt;/option&gt;
+    &lt;option value=&quot;B&quot;&gt;B&lt;/option&gt;
+    &lt;option value=&quot;C&quot;&gt;C&lt;/option&gt;
+    &lt;option value=&quot;D&quot;&gt;D&lt;/option&gt;
+&lt;/select&gt;
+&lt;/form&gt;
+            </code>
+            </pre>
+        </div>
+
+        <div id="JS3" class="tabcontent">
+            <pre class="code">
+const dropdownChecker = new Validation("#dropdownChecker")
+dropdownChecker.validate({
+    dropdown: {
+        type: "dropdown",
+        exclude: ["C", "D"]
+    }
+})
+</pre>
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+    <div class="formContainer">
+
+        <form id="dateChecker">
+            <h2>date</h2>
+            <a class="back" href="#content">back to top</a> <br />
+            <label for="ssdate">Write a date</label> <br />
+            <input type="text" name="ssdate" /> <br />
+        </form>
+        <p><u>Code for the options of above </u> </p>
+        <div class="tab">
+            <button class="tablinks htmla" onclick="openCode(event, 'JS2')">JS</button>
+            <button class="tablinks" onclick="openCode(event, 'HTML2')">HTML</button>
+        </div>
+
+
+        <div id="HTML2" class="tabcontent">
+            <pre class="code">
+                <code>
+&#x3C;form id=&#x22;dateChecker&#x22;&#x3E;
+    &#x3C;h2&#x3E;date&#x3C;/h2&#x3E;
+    &#x3C;a class=&#x22;back&#x22; href=&#x22;#content&#x22;&#x3E;back to top&#x3C;/a&#x3E; &#x3C;br /&#x3E;
+    &#x3C;label for=&#x22;ssdate&#x22;&#x3E;Write a date&#x3C;/label&#x3E; &#x3C;br /&#x3E;
+    &#x3C;input type=&#x22;text&#x22; name=&#x22;ssdate&#x22; /&#x3E; &#x3C;br /&#x3E;
+&#x3C;/form&#x3E;
+            </code>
+            </pre>
+        </div>
+
+        <div id="JS2" class="tabcontent">
+            <pre class="code">
+ const dateChecker = new Validation("#dateChecker")
+ dropdownChecker.validate({
+    ssdate: {
+        type: "date"
+    }
+})
+</pre>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="formContainer">
+
+        <form id="customFunction">
+            <h2>custom function</h2>
+            <a class="back" href="#content">back to top</a> <br />
+            <label for="firstname">First Name (Try starting the name with an s)</label> <br />
+
+            <input type="text" name="firstname" /> <br />
+        </form>
+        <p><u>Code for the options of above </u> </p>
+        <div class="tab">
+            <button class="tablinks htmlx" onclick="openCode(event, 'JS')">JS</button>
+            <button class="tablinks" onclick="openCode(event, 'HTML')">HTML</button>
+        </div>
+
+        <div id="HTML" class="tabcontent">
+            <pre class="code">
+            <code>
+ &#x3C;form id=&#x22;customFunction&#x22;&#x3E;
+    &#x3C;h2&#x3E;custom function&#x3C;/h2&#x3E;
+    &#x3C;a class=&#x22;back&#x22; href=&#x22;#content&#x22;&#x3E;back to top&#x3C;/a&#x3E; &#x3C;br /&#x3E;
+    &#x3C;label for=&#x22;firstname&#x22;&#x3E;
+    First Name (Try starting the name with an s)
+    &#x3C;/label
+    &#x3E; &#x3C;br /&#x3E;
+    &#x3C;input type=&#x22;text&#x22; name=&#x22;firstname&#x22; /&#x3E; &#x3C;br /&#x3E;
+ &#x3C;/form&#x3E;
+            </code>
+            </pre>
+        </div>
+
+        <div id="JS" class="tabcontent">
+            <pre class="code">
+ const customFunction = new Validation("#customFunction")
+ customFunction.validate({
+    firstname: {
+        type: "text",
+        required: true,
+        customCheck: {
+            checker: function (val) {
+                if (val) {
+                    if (val[0] === "S" || val[0] === "s") {
+                        return true
+                    }
+                }
+                return false
+            },
+            errorMessage: "No names that start with s"
+        }
+    },
+})
+</pre>
+        </div>
+
+
+
+    </div>
+
+
+    <div class="formContainer">
+
+        <form id="containsExample">
+            <h2>contains example</h2>
+            <a class="back" href="#content">back to top</a> <br />
+            <label for="firstname">First Name (Try putting a name that contains "a" anywhere)</label> <br />
+
+            <input type="text" name="firstname" /> <br />
+        </form>
+        <p><u>Code for the options of above </u> </p>
+        <div class="tab">
+            <button class="tablinks htmlx" onclick="openCode(event, 'JS51')">JS</button>
+            <button class="tablinks" onclick="openCode(event, 'HTMLl1')">HTML</button>
+        </div>
+
+        <div id="HTMLl1" class="tabcontent">
+            <pre class="code">
+            <code>
+&lt;form id=&quot;containsExample&quot;&gt;
+    &lt;h2&gt;contains example&lt;/h2&gt;
+    &lt;a class=&quot;back&quot; href=&quot;#content&quot;&gt;back to top&lt;/a&gt; &lt;br /&gt;
+    &lt;label for=&quot;firstname&quot;&gt;First Name (Try putting a name that contains &quot;a&quot; anywhere)&lt;/label&gt; &lt;br /&gt;
+    &lt;input type=&quot;text&quot; name=&quot;firstname&quot; /&gt; &lt;br /&gt;
+&lt;/form&gt;
+
+            </code>
+            </pre>
+        </div>
+
+        <div id="JS51" class="tabcontent">
+            <pre class="code">
+ const containsExample = new Validation("#containsExample")
+ containsExample.validate({
+    firstname: {
+        type: "text",
+        required: true,
+        contains: ["a"]
+ 
+    },
+})
+</pre>
+        </div>
+
+
+
+    </div>
+
+
+
+
+    <div class="formContainer">
+
+        <form id="getErrorsExample">
+            <h2>.getErrors() example</h2>
+            <a class="back" href="#content">back to top</a> <br />
+
+            <label for="name">Name</label> <br />
+            <input type="text" name="firstname" /> <br />
+
+            <label for="email">Email</label> <br />
+            <input type="text" name="email" /> <br />
+
+            <label for="phonenumber">Phone Number</label> <br />
+            <input type="text" name="phonenumber" /> <br />
+
+            <label for="comment">Your reply</label> <br />
+            <textarea name="comment" class="textarea"></textarea> <br />
+
+
+            <button type="submit">Create</button>
+
+        </form>
+        <p><u>Code for the options of above </u> </p>
+        <p>.getErrors returns all the options set to this form, for example the above form will return</p>
+        <div class="tab">
+            <button class="tablinks htmla" onclick="openCode(event, 'JS7')">JS</button>
+        </div>
+
+
+
+
+        <div id="JS7" class="tabcontent">
+            <pre class="code">
+const commentForm2 = new Validation("#getErrorsExample")
+commentForm2.validate({
+    firstname: {
+        type: "text",
+        minLength: 1,
+        numbers: false,
+    },
+    email: {
+        type: "email"
+    },
+    phonenumber: {
+        type: "phoneNumber"
+    },
+    comment: {
+        type: "textarea",
+        minLength: 2,
+        maxLength: 25,
+    }
+})
+in console if you type below it will return that
+> commentForm2.getErrors()
+// will return
+{
+    firstname: {
+        type: "text",
+        minLength: 1,
+        numbers: false,
+    },
+    email: {
+        type: "email"
+    },
+    phonenumber: {
+        type: "phoneNumber"
+    },
+    comment: {
+        type: "textarea",
+        minLength: 2,
+        maxLength: 25,
+    }
+}
+</pre>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="formContainer">
+
+        <form id="getActiveErrorsExample">
+            <h2>.getActiveErrors() example</h2>
+            <a class="back" href="#content">back to top</a> <br />
+
+            <label for="name">Name</label> <br />
+            <input type="text" name="firstname" /> <br />
+
+            <label for="email">Email</label> <br />
+            <input type="text" name="email" /> <br />
+
+            <label for="phonenumber">Phone Number</label> <br />
+            <input type="text" name="phonenumber" /> <br />
+
+            <label for="comment">Your reply</label> <br />
+            <textarea name="comment" class="textarea"></textarea> <br />
+
+
+            <button type="submit">Create</button>
+
+        </form>
+        <p><u>Code for the options of above </u> </p>
+        <p>.getActiveErrors returns all the active errors that are on this form, for example the above form will
+            return</p>
+        <div class="tab">
+            <button class="tablinks htmla" onclick="openCode(event, 'JS8')">JS</button>
+        </div>
+
+
+
+
+        <div id="JS8" class="tabcontent">
+            <pre class="code">
+const commentForm3 = new Validation("#getActiveErrorsExample")
+commentForm3.validate({
+    firstname: {
+        type: "text",
+        minLength: 1,
+        numbers: false,
+    },
+    email: {
+        type: "email"
+    },
+    phonenumber: {
+        type: "phoneNumber"
+    },
+    comment: {
+        type: "textarea",
+        minLength: 2,
+        maxLength: 25,
+    }
+})
+// get active errors will return format is not valid for email 
+// and length is less than 2 for comment. E.g. in console
+> commentForm3.getActiveErrors()
+{
+    comment: ["Length must be at least 2"],
+    email: ["Format is not valid"]
+}
+    </pre>
+        </div>
+
+    </div>
+
+    <div class="formContainer">
+
+        <form id="editOptionsExample">
+            <h2>.editOptions(name, newOptions) example</h2>
+            <a class="back" href="#content">back to top</a> <br />
+
+            <label for="name">Name</label> <br />
+            <input type="text" name="firstname" /> <br />
+
+            <label for="email">Email</label> <br />
+            <input type="text" name="email" /> <br />
+
+            <label for="phonenumber">Phone Number</label> <br />
+            <input type="text" name="phonenumber" /> <br />
+
+            <label for="comment">Your reply</label> <br />
+            <textarea name="comment" class="textarea"></textarea> <br />
+            <button type="submit">Create</button>
+
+
+
+
+        </form>
+        <p><u>Code for the options of above </u> </p>
+        <p>.editOptions(name, newOptions) will edit an existing form given name and new options for that name</p>
+        <div class="tab">
+            <button class="tablinks htmla" onclick="openCode(event, 'JS9')">JS</button>
+        </div>
+
+
+
+
+        <div id="JS9" class="tabcontent">
+            <pre class="code">
+const commentForm4 = new Validation("#editOptionsExample")
+commentForm4.validate({
+    firstname: {
+        type: "text",
+        minLength: 1,
+        numbers: false,
+    },
+    email: {
+        type: "email"
+    },
+    phonenumber: {
+        type: "phoneNumber"
+    },
+    comment: {
+        type: "textarea",
+        minLength: 2,
+        maxLength: 25,
+    }
+})
+// above will edit the firstname field
+commentForm4.editOptions("firstname", { 
+    type: "text", 
+    minLength: 1000 
+})
+    </pre>
+        </div>
+
+    </div>
+
+
+    <div class="formContainer">
+
+        <form id="removeOptionsExample">
+            <h2>.removeOptions() example</h2>
+            <a class="back" href="#content">back to top</a> <br />
+
+            <label for="name">Name</label> <br />
+            <input type="text" name="firstname" /> <br />
+
+            <label for="email">Email</label> <br />
+            <input type="text" name="email" /> <br />
+
+            <label for="phonenumber">Phone Number</label> <br />
+            <input type="text" name="phonenumber" /> <br />
+
+            <label for="comment">Your reply</label> <br />
+            <textarea name="comment" class="textarea"></textarea> <br />
+
+
+
+
+        </form>
+        <p><u>Code for the options of above </u> </p>
+        <p>.removeOptions() removes all the options</p>
+        <div class="tab">
+            <button class="tablinks htmla" onclick="openCode(event, 'JS10')">JS</button>
+        </div>
+
+
+
+
+        <div id="JS10" class="tabcontent">
+            <pre class="code">
+const commentForm5 = new Validation("#removeOptionsExample")
+commentForm5.validate({
+    firstname: {
+        type: "text",
+        minLength: 1,
+        numbers: false,
+    },
+    email: {
+        type: "email"
+    },
+    phonenumber: {
+        type: "phoneNumber"
+    },
+    comment: {
+        type: "textarea",
+        minLength: 2,
+        maxLength: 25,
+    }
+})
+
+// removed all the set options
+commentForm5.removeOptions()
+    </pre>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
